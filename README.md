@@ -46,6 +46,9 @@ update-passwordmanager
 ```
 
 # USAGE
+
+set a unique key to encrypt and decrypt your passwords in database! just run script with this (KEY):>
+
 ```
 usage: PASS STORE [-h] [--id ID] [--user_name USER_NAME]
                   [--website_address WEBSITE_ADDRESS]
