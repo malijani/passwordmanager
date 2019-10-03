@@ -27,7 +27,7 @@ virtualenv .venv -p python3
 # add aliases for user shell
 if [[ $(echo $SHELL | grep bash) ]] ;then
     if [[ ! $(grep activenv ~/.bashrc) ]]; then
-        echo "alias activenv='source .venv/bin/activate'" >> ~/.bashrc
+        echo -e "\nalias activenv='source .venv/bin/activate'" >> ~/.bashrc
         echo "alias passwordmanager='cd ~/.passwordmanager && activenv && ./passwordmanager.py'" >> ~/.bashrc
         echo "alias update-passwordmanager='cd ~/.passwordmanager && git pull -f && cd'" >> ~/.bashrc
     else
@@ -35,7 +35,7 @@ if [[ $(echo $SHELL | grep bash) ]] ;then
     fi
 elif [[ $(echo $SHELL | grep zsh) ]] ; then
     if [[ ! $(grep activenv ~/.zshrc) ]]; then
-        echo "alias activenv='source .venv/bin/activate'" >> ~/.zshrc
+        echo -e "\nalias activenv='source .venv/bin/activate'" >> ~/.zshrc
         echo "alias passwordmanager='cd ~/.passwordmanager && activenv && ./passwordmanager.py'" >> ~/.zshrc
         echo "alias update-passwordmanager='cd ~/.passwordmanager && git pull -f && cd'" >> ~/.zshrc
     else
