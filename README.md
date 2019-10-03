@@ -1,3 +1,31 @@
+# ABOUT
+**This script helps me to manage my PASSWORDs and encrypt them in place with sqlite3 database!
+My secure way to protect password data!
+You can add it to a live persistent system to have your system and passwords with yourself everywhere!
+my way : a persistent encrypted kalilinux on a flash USB!**
+# Download And Config
+###### download:
+```bash
+mkdir -p ~/SourceVersionControl/github.com/virtualdemon && cd ~/SourceVersionControl/github.com/virtualdemon && git clone https://github.com/virtualdemon/passwordmanager
+```
+###### configure:
+**USE .bashrc ALTERNATE FOR YOUR SHELL ; sample : ~/.zshrc
+**
+```bash
+cd ~/SourceVersionControl/github.com/virtualdemon
+pip install virtualenv
+virtualenv .venv # python3
+echo "alias activenv='source .venv/bin/activate'" >> ~/.bashrc
+echo "alias passwordmanager='cd ~/SourceVersionControl/github.com/virtualdemon && activenv && ./passwordmanager.py'" >> ~/.bashrc
+activenv
+pip install -r requirements.txt
+deactivate
+cd $HOME
+passwordmanager --help
+```
+
+# USAGE
+```
 usage: PASS STORE [-h] [--id ID] [--user_name USER_NAME]
                   [--website_address WEBSITE_ADDRESS]
                   [--phone_number PHONE_NUMBER] [--password PASSWORD]
@@ -36,3 +64,5 @@ optional arguments:
   --column COLUMN       input column
   --get_tables          get tablenames in database
   --search SEARCH       search in table with website address
+
+```
