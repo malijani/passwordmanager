@@ -37,7 +37,8 @@ update-passwordmanager
 ```
 
 # USAGE
-```usage: PASS STORE [-h] [--id ID] [--user_name USER_NAME]
+```
+usage: PASS STORE [-h] [--id ID] [--user_name USER_NAME]
                   [--website_address WEBSITE_ADDRESS]
                   [--phone_number PHONE_NUMBER] [--password PASSWORD]
                   [--length LENGTH] [--intractive] [--email EMAIL]
@@ -75,5 +76,4 @@ optional arguments:
   --column COLUMN       input column
   --get_tables          get tablenames in database
   --search SEARCH       search in table with website address
-
 ```
