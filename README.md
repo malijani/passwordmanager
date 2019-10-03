@@ -27,7 +27,7 @@ mkdir -p ~/SourceVersionControls/github.com/virtualdemon && cd ~/SourceVersionCo
 ```bash
 cd ~/SourceVersionControls/github.com/virtualdemon/passwordmanager
 pip install virtualenv
-virtualenv .venv # python3
+virtualenv .venv -p python3
 echo "alias activenv='source .venv/bin/activate'" >> ~/.bashrc
 echo "alias passwordmanager='cd ~/SourceVersionControls/github.com/virtualdemon/passwordmanager && activenv && ./passwordmanager.py'" >> ~/.bashrc
 activenv
