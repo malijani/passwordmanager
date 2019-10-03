@@ -12,8 +12,8 @@ if [[ ! $(which python3) ]]; then
     echo "Please install python3"
 fi
 # set paths for script
-script_root_dir="~/SourceVersionControls/github.com/virtualdemon"
-script_path_dir="~/SourceVersionControls/github.com/virtualdemon/passwordmanager"
+script_root_dir="$HOME/SourceVersionControls/github.com/virtualdemon"
+script_path_dir="$HOME/SourceVersionControls/github.com/virtualdemon/passwordmanager"
 # download script repository
 echo "Downloading repository"
 mkdir -p $script_root_dir
