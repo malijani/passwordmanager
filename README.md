@@ -18,18 +18,18 @@ curl -s https://raw.githubusercontent.com/virtualdemon/passwordmanager/master/in
 
 ###### download:
 ```bash
-mkdir -p ~/SourceVersionControls/github.com/virtualdemon && cd ~/SourceVersionControls/github.com/virtualdemon && git clone https://github.com/virtualdemon/passwordmanager
+git clone https://github.com/virtualdemon/passwordmanager ~/.passwordmanager
 ```
 
 ###### configure:
 **USE .bashrc ALTERNATE FOR YOUR SHELL ; sample : ~/.zshrc**
 
 ```bash
-cd ~/SourceVersionControls/github.com/virtualdemon/passwordmanager
+cd ~/.passwordmanager
 pip install virtualenv
 virtualenv .venv -p python3
 echo "alias activenv='source .venv/bin/activate'" >> ~/.bashrc
-echo "alias passwordmanager='cd ~/SourceVersionControls/github.com/virtualdemon/passwordmanager && activenv && ./passwordmanager.py'" >> ~/.bashrc
+echo "alias passwordmanager='cd ~/.passwordmanager && activenv && ./passwordmanager.py'" >> ~/.bashrc
 activenv
 pip install -r requirements.txt
 deactivate
@@ -41,7 +41,7 @@ after using the script just rund `deactivate` command to disable virtual environ
 
 ##### update:
 ```bash
-echo "alias update-passwordmanager='cd ~/SourceVersionControls/github.com/virtualdemon/passwordmanager && git pull -f && cd'" >> ~/.bashrc
+echo "alias update-passwordmanager='cd ~/.passwordmanager && git pull -f && cd'" >> ~/.bashrc
 update-passwordmanager
 ```
 
