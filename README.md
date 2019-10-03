@@ -9,6 +9,13 @@ my way : **a persistent encrypted kalilinux on a flash USB!**
 
 # Download, Config And Update
 
+## Automated installation (supports bash, zshrc!):
+```bash
+curl -s https://raw.githubusercontent.com/virtualdemon/passwordmanager/master/install-and-configure.sh | bash
+```
+
+## Manual installation:
+
 ###### download:
 ```bash
 mkdir -p ~/SourceVersionControls/github.com/virtualdemon && cd ~/SourceVersionControls/github.com/virtualdemon && git clone https://github.com/virtualdemon/passwordmanager
