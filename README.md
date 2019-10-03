@@ -37,6 +37,8 @@ cd $HOME
 passwordmanager --help
 ```
 
+after using the script just rund `deactivate` command to disable virtual environment!
+
 ##### update:
 ```bash
 echo "alias update-passwordmanager='cd ~/SourceVersionControls/github.com/virtualdemon/passwordmanager && git pull -f && cd'" >> ~/.bashrc
