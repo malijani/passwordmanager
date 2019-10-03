@@ -49,7 +49,7 @@ else
     exit
 fi
 # activate virtual environment for installing the needed libraries
-activenv
+source .venv/bin/activate
 # install needed libraries for passwordmanager
 pip3 install -r requirements.txt
 # deactivate virtual environment
