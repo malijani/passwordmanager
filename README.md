@@ -1,11 +1,11 @@
 # ABOUT
-**This script helps me to manage my PASSWORDs and encrypt them in place with sqlite3 database!
+**This script helps me to manage my PASSWORDs and encrypt them in place with sqlite3 database!**
 
-My secure way to protect password data!
+**My secure way to protect password data!**
 
-You can add it to a live persistent system to have your system and passwords with yourself everywhere!
+**You can add it to a live persistent system to have your system and passwords with yourself everywhere!**
 
-my way : a persistent encrypted kalilinux on a flash USB!**
+my way : **a persistent encrypted kalilinux on a flash USB!**
 
 # Download, Config And Update
 
