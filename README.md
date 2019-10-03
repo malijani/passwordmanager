@@ -12,11 +12,11 @@ mkdir -p ~/SourceVersionControl/github.com/virtualdemon && cd ~/SourceVersionCon
 **USE .bashrc ALTERNATE FOR YOUR SHELL ; sample : ~/.zshrc
 **
 ```bash
-cd ~/SourceVersionControl/github.com/virtualdemon
+cd ~/SourceVersionControl/github.com/virtualdemon/passwordmanager
 pip install virtualenv
 virtualenv .venv # python3
 echo "alias activenv='source .venv/bin/activate'" >> ~/.bashrc
-echo "alias passwordmanager='cd ~/SourceVersionControl/github.com/virtualdemon && activenv && ./passwordmanager.py'" >> ~/.bashrc
+echo "alias passwordmanager='cd ~/SourceVersionControl/github.com/virtualdemon/passwordmanager && activenv && ./passwordmanager.py'" >> ~/.bashrc
 activenv
 pip install -r requirements.txt
 deactivate
