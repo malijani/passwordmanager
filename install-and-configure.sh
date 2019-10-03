@@ -18,7 +18,7 @@ if [[ -e "~/.passwordmanager" ]]; then
 fi
 # download script repository
 echo "Downloading repository"
-git clone https://github.com/virtualdemon/passwordmanager -o ~/.passwordmanager
+git clone https://github.com/virtualdemon/passwordmanager ~/.passwordmanager
 cd ~/.passwordmanager
 # install virtualenv with pip3
 pip3 install virtualenv --user
