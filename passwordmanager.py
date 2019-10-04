@@ -331,9 +331,9 @@ def main():
                         help='''set password length for auto-generation''',
                         type=int)
 
-    parser.add_argument("--intractive",
-                        help="take data in intractive mode",
-                        action="store_true")
+    #parser.add_argument("--intractive",
+                        #help="take data in intractive mode",
+                        #action="store_true")
 
     parser.add_argument("--email",
                         help="set acc email")
@@ -470,8 +470,8 @@ def main():
         database = args.database
     if args.column:
         column = args.column
-    if args.intractive:
-        pass
+    #if args.intractive:
+        #pass
     if args.update:
         try:
             data = {"id": row_id,
