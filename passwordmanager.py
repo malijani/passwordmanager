@@ -66,7 +66,7 @@ class DataBase:
         column = ''.join(data.keys())
         # set a tuple of values to pass them in execute() method
         values = tuple(data.values())
-        sql = f'''SELECT count(*) FROM {self.table_name} WHERE {column}=?'''
+        sql = f'''SELECT count(id) FROM {self.table_name} WHERE {column}=?'''
         self.cursor.execute(sql, values)
         data = self.cursor.fetchone()[0]
         if data == 0:
