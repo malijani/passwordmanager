@@ -7,6 +7,8 @@
 
 my way : **a persistent encrypted kalilinux on a flash USB!**
 
+[![asciicast](https://asciinema.org/a/e38VtPgyLQZWyZjURTbtWrgUt.png)](https://asciinema.org/a/e38VtPgyLQZWyZjURTbtWrgUt)
+
 # Download, Config And Update
 
 ## Automated installation (supports bash, zshrc!):
