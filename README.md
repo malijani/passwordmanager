@@ -20,7 +20,11 @@ curl -s https://raw.githubusercontent.com/virtualdemon/passwordmanager/master/in
 
 ###### download:
 ```bash
-git clone https://github.com/virtualdemon/passwordmanager ~/.passwordmanager
+mkdir -p ~/.passwordmanager
+cd ~/.passwordmanager
+curl -s -o passwordmanager.py https://raw.githubusercontent.com/virtualdemon/passwordmanager/master/passwordmanager.py
+chmod +x passwordmanager.py
+curl -s -o requirements.txt https://raw.githubusercontent.com/virtualdemon/passwordmanager/master/requirements.txt
 ```
 
 ###### configure:
@@ -43,7 +47,8 @@ after using the script just rund `deactivate` command to disable virtual environ
 
 ##### update:
 ```bash
-echo "alias update-passwordmanager='cd ~/.passwordmanager && git pull -f && cd'" >> ~/.bashrc
+echo "alias update-passwordmanager='cd ~/.passwordmanager && curl -s -o passwordmanager.py https://raw.githubusercontent.com/virtualdemon/passwordmanager/master/passwordmanager.py
+ && curl -s -o requirements.txt https://raw.githubusercontent.com/virtualdemon/passwordmanager/master/requirements.txt && activenv && pip3 install -r requirements.txt && deactivate && cd'" >> ~/.bashrc
 update-passwordmanager
 ```
 
