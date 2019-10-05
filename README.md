@@ -63,7 +63,7 @@ set a unique key to encrypt and decrypt your passwords in database! just run scr
 usage: PASS STORE [-h] [--id ID] [--user_name USER_NAME]
                   [--website_address WEBSITE_ADDRESS]
                   [--phone_number PHONE_NUMBER] [--password PASSWORD]
-                  [--length LENGTH] [--intractive] [--email EMAIL]
+                  [--length LENGTH] [--email EMAIL]
                   [--description DESCRIPTION] [--delete] [--update]
                   [--show_content] [--show_enc_content] [--insert]
                   [--table_name TABLE_NAME] [--database DATABASE]
@@ -83,7 +83,6 @@ optional arguments:
   --password PASSWORD   user "GEN" to generate password or set your custom
                         password
   --length LENGTH       set password length for auto-generation
-  --intractive          take data in intractive mode
   --email EMAIL         set acc email
   --description DESCRIPTION
                         set field description
