@@ -14,7 +14,7 @@ my way : **a persistent encrypted kalilinux on a flash USB!**
 
 # Download, Config And Update
 
-## Automated installation (supports bash, zshrc!):
+## Automated installation (supports bash, zsh):
 ```bash
 curl -s https://raw.githubusercontent.com/virtualdemon/passwordmanager/master/install-and-configure.sh | bash
 ```
