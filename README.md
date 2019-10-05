@@ -9,6 +9,9 @@ my way : **a persistent encrypted kalilinux on a flash USB!**
 
 [![asciicast](https://asciinema.org/a/e38VtPgyLQZWyZjURTbtWrgUt.png)](https://asciinema.org/a/e38VtPgyLQZWyZjURTbtWrgUt)
 
+
+![RepoSize](https://img.shields.io/github/repo-size/virtualdemon/passwordmanager.svg?style=flat-square) ![Contributors](https://img.shields.io/github/contributors/virtualdemon/passwordmanager.svg?style=flat-square)
+
 # Download, Config And Update
 
 ## Automated installation (supports bash, zshrc!):
