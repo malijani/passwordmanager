@@ -298,8 +298,11 @@ def create_password(address, user, random_string, length):
     md5 = hashlib.md5(complex_string.encode('utf-8')).hexdigest()
     sha512 = f"{hashlib.sha512(md5.encode('utf-8')).hexdigest()[0:length-5]}"
     custom_chars = ["!", "@", "#", "$", "%", "_", "+", "*", "[",
-                    "]", "(", ")", "=", "&", "?", ":", ".", "-"]
-    custom_key = ''.join(random.choice(custom_chars) for x in range(5))
+                    "]", "(", ")", "=", "&", "?", ":", ".", "-",
+                    "^", "A", "B", "C", "D", "E", "F", "G", "H",
+                    "I", "J", "K", "L", "M", "N", "O", "P", "Q",
+                    "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
+    custom_key = ''.join(random.choice(custom_chars) for x in range(10))
     password = sha512 + custom_key
     shuffle_password = ''.join(random.sample(password, len(password)))
     return shuffle_password
@@ -325,7 +328,7 @@ def main():
 
     parser.add_argument("--password",
                         help='''user "GEN" to generate password
-                        or set your custom password''')
+                        or set your custom password or "SHOW" to show generated password''')
 
     parser.add_argument("--length",
                         help='''set password length for auto-generation''',
@@ -366,9 +369,6 @@ def main():
 
     parser.add_argument("--database",
                         help="database address")
-
-    parser.add_argument("--column",
-                        help="input column")
 
     parser.add_argument("--get_tables",
                         help='''get tablenames in database''',
@@ -468,8 +468,6 @@ def main():
         table = args.table_name
     if args.database:
         database = args.database
-    if args.column:
-        column = args.column
     #if args.intractive:
         #pass
     if args.update:
