@@ -6,6 +6,7 @@ import os
 import hashlib
 import random
 import string
+import getpass
 from cryptography.hazmat.backends import default_backend
 from cryptography.hazmat.primitives import hashes
 from cryptography.hazmat.primitives.kdf.pbkdf2 import PBKDF2HMAC
@@ -232,7 +233,7 @@ class DataBase:
 
 class Password:
     def __init__(self):
-        self.custom_string = input("(KEY):> ").encode()
+        self.custom_string = getpass.getpass("(KEY):> ").encode()
 
     # set FERNET object
     def setup(self):
