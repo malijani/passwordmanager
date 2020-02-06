@@ -7,53 +7,12 @@
 
 my way : **a persistent encrypted kalilinux on a flash USB!**
 
-<!---[![asciicast](https://asciinema.org/a/e38VtPgyLQZWyZjURTbtWrgUt.png)](https://asciinema.org/a/e38VtPgyLQZWyZjURTbtWrgUt) --->
+[![asciicast](https://asciinema.org/a/25QiaZ8U5WInmT4rjkuyT7JXq.png)](https://asciinema.org/a/25QiaZ8U5WInmT4rjkuyT7JXq) 
 
 
-![RepoSize](https://img.shields.io/github/repo-size/virtualdemon/passwordmanager.svg?style=flat-square) ![Contributors](https://img.shields.io/github/contributors/virtualdemon/passwordmanager.svg?style=flat-square)
+![RepoSize](https://img.shields.io/github/repo-size/malijani/passwordmanager.svg?style=flat-square) ![Contributors](https://img.shields.io/github/contributors/malijani/passwordmanager.svg?style=flat-square)
 
-# Download, Config And Update
 
-## Automated installation (supports bash, zsh):
-```bash
-curl -s https://raw.githubusercontent.com/virtualdemon/passwordmanager/master/install-and-configure.sh | bash
-```
-
-## Manual installation:
-
-###### download:
-```bash
-mkdir -p ~/.passwordmanager
-cd ~/.passwordmanager
-curl -s -o passwordmanager.py https://raw.githubusercontent.com/virtualdemon/passwordmanager/master/passwordmanager.py
-chmod +x passwordmanager.py
-curl -s -o requirements.txt https://raw.githubusercontent.com/virtualdemon/passwordmanager/master/requirements.txt
-```
-
-###### configure:
-**USE .bashrc ALTERNATE FOR YOUR SHELL ; sample : ~/.zshrc**
-
-```bash
-cd ~/.passwordmanager
-pip install virtualenv
-virtualenv .venv -p python3
-echo "alias activenv='source .venv/bin/activate'" >> ~/.bashrc
-echo "alias passwordmanager='cd ~/.passwordmanager && activenv && ./passwordmanager.py'" >> ~/.bashrc
-activenv
-pip install -r requirements.txt
-deactivate
-cd $HOME
-passwordmanager --help
-```
-
-after using the script just rund `deactivate` command to disable virtual environment!
-
-##### update:
-```bash
-echo "alias update-passwordmanager='cd ~/.passwordmanager && curl -s -o passwordmanager.py https://raw.githubusercontent.com/virtualdemon/passwordmanager/master/passwordmanager.py
- && curl -s -o requirements.txt https://raw.githubusercontent.com/virtualdemon/passwordmanager/master/requirements.txt && activenv && pip3 install -r requirements.txt && deactivate && cd'" >> ~/.bashrc
-update-passwordmanager
-```
 
 # USAGE
 
