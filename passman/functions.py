@@ -26,16 +26,19 @@ def create_password(address, user, random_string, length):
     complex_string = f"{address}_{random_string}_{user}"
     md5 = hashlib.md5(complex_string.encode('utf-8')).hexdigest()
     sha512 = f"{hashlib.sha512(md5.encode('utf-8')).hexdigest()[0:length-5]}"
-    custom_chars = ["@", "#", "$", "%", "_", "+", "*", "[", "|",
-                    "]", "(", ")", "=", "&", "?", ":", ".", "-",
-                    "^", "/", "<", ">", "{", "}", ";", "~"]
-    custom_chars.append(string.ascii_lowercase)
-    custom_chars.append(string.ascii_uppercase)
-    custom_chars + [num for num in range(0,10)]
+    custom_chars = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l','m',
+                    'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z',
+                    'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M',
+                    'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z',
+                    '0', '1', '2', '3', '4', '5', '6', '7', '8', '9',
+                    '!', '"', '#', '$', '%', '&', "'", '(', ')', '*', '+', ',', '-',
+                    '.', '/', ':', ';', '<', '=', '>', '?', '@', '[', '\\', ']', '^',
+                    '_', '`', '{', '|', '}', '~', '!', '"', '#', '$', '%', '&', "'",
+                    '(', ')', '*', '+', ',', '-', '.', '/', ':', ';', '<', '=', '>',
+                    '?', '@', '[', '\\', ']', '^', '_', '`', '{', '|', '}', '~']
     custom_key = ''.join(random.choice(custom_chars) for x in range(10))
     password = sha512 + custom_key
     if length :
         password = password[:length]
     shuffle_password = ''.join(random.sample(password, len(password)))
     return shuffle_password
-
