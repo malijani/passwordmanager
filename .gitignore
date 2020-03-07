@@ -1,4 +1,4 @@
+.vscode
 .venv/
 *~
-passman/passwords.db
-passman/__pycache__ 
+passman/lib/__pycache__
