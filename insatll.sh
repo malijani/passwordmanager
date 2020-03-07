@@ -47,7 +47,11 @@ cd $HOME/.passman
 # create .vev directory
 command virtualenv -p python3 .venv
 # activate virtual environment for installing the needed libraries
-source .venv/bin/activate
+source "./.venv/bin/activate"
+if [[ "$VIRTUAL_ENV" != "1" ]]; then
+    echo "virtualenv is not activated!"
+    exit 1
+fi
 # install needed libraries for passman
 pip3 install -r requirements.txt
 # deactivate virtual environment
