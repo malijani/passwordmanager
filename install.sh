@@ -36,7 +36,7 @@ command virtualenv -p python3 .venv
 echo "$(pwd)"
 command ls -la
 # activate virtual environment for installing the needed libraries
-source .venv/bin/activate
+. ".venv/bin/activate"
 # check if virtualenv is not activated then exit
 if [[ "$VIRTUAL_ENV" != "1" ]]; then
     echo "virtualenv is not activated!"
