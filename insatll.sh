@@ -11,7 +11,7 @@ has pip3
 has python3
 has virtualenv
 has unzip
-has curl
+has wget
 
 
 while [ "$1" != "" ]; do
@@ -34,9 +34,9 @@ if [[ -e "$HOME/.passman" ]]; then
 fi
 # download script archive
 echo "Downloading passman.zip"
-curl -so passman.zip https://github.com/malijani/passwordmanager/raw/master/archive/passman.zip
+wget passman.zip https://github.com/malijani/passwordmanager/raw/master/archive/passman.zip
 unzip passman.zip
-mv pasman/ $HOME/.passman
+mv passman/ $HOME/.passman
 rm passman.zip
 cd $HOME/.passman
 # create .vev directory
