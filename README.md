@@ -20,7 +20,8 @@ You can simply run this command to download package and install it:
 
 then add this function to your ~/.bashrc (or ~/.shell*rc if you're using another kind of shell!):
 
-```passman() {
+```bash
+passman() {
     wd=\$(pwd)
     cd ~/.passman
     source .venv/bin/activate
