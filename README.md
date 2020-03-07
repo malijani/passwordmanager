@@ -27,7 +27,8 @@ then add this function to your ~/.bashrc (or ~/.shell*rc if you're using another
     ./passman.py "\$@"
     deactivate
     cd "\$wd";
-}```
+}
+```
 
 after adding this function you can use it :
 
