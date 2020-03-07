@@ -40,14 +40,13 @@ after adding this function you can use it :
 set a unique key to encrypt and decrypt your passwords in database! just run script with this (KEY):>
 
 ```
-usage: PASS STORE [-h] [--id ID] [--user_name USER_NAME]
-                  [--website_address WEBSITE_ADDRESS]
-                  [--phone_number PHONE_NUMBER] [--password PASSWORD]
-                  [--length LENGTH] [--email EMAIL]
-                  [--description DESCRIPTION] [--delete] [--update]
-                  [--show_content] [--show_enc_content] [--insert]
-                  [--table_name TABLE_NAME] [--database DATABASE]
-                  [--column COLUMN] [--get_tables] [--search SEARCH]
+usage: passman [-h] [--id ID] [--user_name USER_NAME]
+               [--website_address WEBSITE_ADDRESS]
+               [--phone_number PHONE_NUMBER] [--password PASSWORD]
+               [--length LENGTH] [--email EMAIL] [--description DESCRIPTION]
+               [--delete] [--update] [--show_content] [--show_enc_content]
+               [--insert] [--table_name TABLE_NAME] [--database DATABASE]
+               [--get_tables] [--search SEARCH]
 
 passwordmanager is a programm to manage password database
 
@@ -61,7 +60,7 @@ optional arguments:
   --phone_number PHONE_NUMBER
                         set phone number
   --password PASSWORD   user "GEN" to generate password or set your custom
-                        password
+                        password or "SHOW" to show generated password
   --length LENGTH       set password length for auto-generation
   --email EMAIL         set acc email
   --description DESCRIPTION
@@ -74,7 +73,6 @@ optional arguments:
   --table_name TABLE_NAME
                         table name
   --database DATABASE   database address
-  --column COLUMN       input column
   --get_tables          get tablenames in database
   --search SEARCH       search in table with website address
 ```
