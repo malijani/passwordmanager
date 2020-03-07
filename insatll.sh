@@ -14,38 +14,38 @@ has unzip
 has curl
 
 # check script existence
-if [[ -e "~/.passman" ]]; then
-    echo "You installed package already! CHECK : ~/.passman"
+if [[ -e "$HOME/.passman" ]]; then
+    echo "You installed package already! CHECK : $HOME/.passman"
     exit
 fi
 # download script archive
 echo "Downloading passman.zip"
 curl -so passman.zip https://github.com/malijani/passwordmanager/raw/master/archive/passman.zip
 unzip passman.zip
-mv pasman/ ~/.passman
+mv pasman/ $HOME/.passman
 rm passman.zip
-cd ~/.passman
+cd $HOME/.passman
 # create .vev directory
 virtualenv .venv -p python3
 # add aliases for user shell
 if [[ $(echo $SHELL | grep bash) ]] ;then
-    if [[ ! $(grep "activenv" ~/.bashrc) ]]; then
-        echo -e "\nalias activenv='source .venv/bin/activate'" >> ~/.bashrc
-        echo "alias passman='cd ~/.passman && activenv && ./passman.py'" >> ~/.bashrc
+    if [[ ! $(grep "activenv" $HOME/.bashrc) ]]; then
+        echo -e "\nalias activenv='source .venv/bin/activate'" >> $HOME/.bashrc
+        echo "alias passman='cd  $HOME/.passman && activenv && ./passman.py'" >> $HOME/.bashrc
     else
         echo "Script is configured for you!"
     fi
 elif [[ $(echo $SHELL | grep zsh) ]] ; then
-    if [[ ! $(grep activenv ~/.zshrc) ]]; then
-        echo -e "\nalias activenv='source .venv/bin/activate'" >> ~/.zshrc
-        echo "alias passman='cd ~/.passman && activenv && ./passman.py'" >> ~/.zshrc
+    if [[ ! $(grep activenv $HOME/.zshrc) ]]; then
+        echo -e "\nalias activenv='source .venv/bin/activate'" >> $HOME/.zshrc
+        echo "alias passman='cd  $HOME/.passman && activenv && ./passman.py'" >> $HOME/.zshrc
     else
         echo "Script is configured for you!"
     fi
 else
     echo "****Please add these lines to your .${SHELL}rc file and continue with manual installation****"
     echo "alias activenv='source .venv/bin/activate'"
-    echo "alias passman='cd ~/.passman && activenv && ./passman.py'"
+    echo "alias passman='cd $HOME/.passman && activenv && ./passman.py'"
     exit
 fi
 # activate virtual environment for installing the needed libraries
