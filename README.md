@@ -7,12 +7,31 @@
 
 my way : **a persistent encrypted kalilinux on a flash USB!**
 
-[![asciicast](https://asciinema.org/a/25QiaZ8U5WInmT4rjkuyT7JXq.png)](https://asciinema.org/a/25QiaZ8U5WInmT4rjkuyT7JXq) 
+[![asciicast](https://asciinema.org/a/25QiaZ8U5WInmT4rjkuyT7JXq.png)](https://asciinema.org/a/25QiaZ8U5WInmT4rjkuyT7JXq)
 
 
 ![RepoSize](https://img.shields.io/github/repo-size/malijani/passwordmanager.svg?style=flat-square) ![Contributors](https://img.shields.io/github/contributors/malijani/passwordmanager.svg?style=flat-square)
 
+# INSTALL
 
+You can simply run this command to download package and install it:
+
+`curl https://raw.githubusercontent.com/malijani/passwordmanager/master/install.sh | bash`
+
+then add this function to your ~/.bashrc (or ~/.shell*rc if you're using another kind of shell!):
+
+```passman() {
+    wd=\$(pwd)
+    cd ~/.passman
+    source .venv/bin/activate
+    ./passman.py "\$@"
+    deactivate
+    cd "\$wd";
+}```
+
+after adding this function you can use it :
+
+`passman --help`
 
 # USAGE
 
