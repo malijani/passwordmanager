@@ -22,12 +22,12 @@ then add this function to your ~/.bashrc (or ~/.shell*rc if you're using another
 
 ```bash
 passman() {
-    wd=\$(pwd)
+    wd=$(pwd)
     cd ~/.passman
     source .venv/bin/activate
-    ./passman.py "\$@"
+    ./passman.py "$@"
     deactivate
-    cd "\$wd";
+    cd "$wd";
 }
 ```
 
