@@ -32,9 +32,6 @@ rm passman.zip
 cd $HOME/.passman
 # create .vev directory
 command virtualenv -p python3 .venv
-# test :
-echo "$(pwd)"
-command ls -la
 # activate virtual environment for installing the needed libraries
 source ./.venv/bin/activate
 # install needed libraries for passman
@@ -45,27 +42,22 @@ deactivate
 # change directory to HOME
 cd $HOME
 
-# add aliases for user shell
-if [[ $(echo $SHELL | grep bash) ]] ;then
-    if [[ ! $(grep "activenv" $HOME/.bashrc) ]]; then
-        echo -e "\nalias activenv='source .venv/bin/activate'" >> $HOME/.bashrc
-        echo "alias passman='cd  $HOME/.passman && activenv && ./passman.py'" >> $HOME/.bashrc
-    else
-        echo "Script is configured for you!"
-    fi
-elif [[ $(echo $SHELL | grep zsh) ]] ; then
-    if [[ ! $(grep activenv $HOME/.zshrc) ]]; then
-        echo -e "\nalias activenv='source .venv/bin/activate'" >> $HOME/.zshrc
-        echo "alias passman='cd  $HOME/.passman && activenv && ./passman.py'" >> $HOME/.zshrc
-    else
-        echo "Script is configured for you!"
-    fi
-else
-    echo "****Please add these lines to your .${SHELL}rc file and continue with manual installation****"
-    echo "alias activenv='source .venv/bin/activate'"
-    echo "alias passman='cd $HOME/.passman && activenv && ./passman.py'"
-    exit
-fi
+# show .passman directory
+ls -R .passman
+
+cat <<EOF
+"PLEASE ADD THIS FUNCTION TO YOUR ~/.bashrc or ~/.shell*rc file!"
+
+passman() {
+    wd=\$(pwd)
+    cd ~/.passman
+    source .venv/bin/activate
+    ./passman.py "\$@"
+    deactivate
+    cd "\$wd";
+}
+
+EOF
 
 # view the configured aliases
-echo "run: 'passman --help' to see script help"
+echo "After adding function you can run: 'passman --help' to see script help and use it!"
