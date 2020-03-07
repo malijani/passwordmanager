@@ -46,6 +46,8 @@ cd $HOME
 ls -R .passman
 
 cat <<EOF
+
+
 "PLEASE ADD THIS FUNCTION TO YOUR ~/.bashrc or ~/.shell*rc file!"
 
 passman() {
