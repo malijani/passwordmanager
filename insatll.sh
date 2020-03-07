@@ -39,8 +39,10 @@ unzip passman.zip
 mv passman/ $HOME/.passman
 rm passman.zip
 cd $HOME/.passman
+
 # create .vev directory
-virtualenv .venv -p python3
+command virtualenv -p python3 .venv
+
 # add aliases for user shell
 if [[ $(echo $SHELL | grep bash) ]] ;then
     if [[ ! $(grep "activenv" $HOME/.bashrc) ]]; then
