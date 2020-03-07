@@ -20,33 +20,32 @@ if [[ -e "~/.passman" ]]; then
 fi
 # download script archive
 echo "Downloading passman.zip"
-mkdir -p ~/.passman
+curl -so passman.zip https://github.com/malijani/passwordmanager/raw/master/archive/passman.zip
+unzip passman.zip
+mv pasman/ ~/.passman
+rm passman.zip
 cd ~/.passman
-
 # create .vev directory
 virtualenv .venv -p python3
 # add aliases for user shell
 if [[ $(echo $SHELL | grep bash) ]] ;then
-    if [[ ! $(grep activenv ~/.bashrc) ]]; then
+    if [[ ! $(grep "activenv" ~/.bashrc) ]]; then
         echo -e "\nalias activenv='source .venv/bin/activate'" >> ~/.bashrc
-        echo "alias passwordmanager='cd ~/.passwordmanager && activenv && ./passwordmanager.py'" >> ~/.bashrc
-        echo "alias update-passwordmanager='cd ~/.passwordmanager && curl -s -o passwordmanager.py https://raw.githubusercontent.com/virtualdemon/passwordmanager/master/passwordmanager.py && curl -s -o requirements.txt https://raw.githubusercontent.com/virtualdemon/passwordmanager/master/requirements.txt && activenv && pip3 install -r requirements.txt && deactivate && cd'" >> ~/.bashrc
+        echo "alias passman='cd ~/.passman && activenv && ./passman.py'" >> ~/.bashrc
     else
         echo "Script is configured for you!"
     fi
 elif [[ $(echo $SHELL | grep zsh) ]] ; then
     if [[ ! $(grep activenv ~/.zshrc) ]]; then
         echo -e "\nalias activenv='source .venv/bin/activate'" >> ~/.zshrc
-        echo "alias passwordmanager='cd ~/.passwordmanager && activenv && ./passwordmanager.py'" >> ~/.zshrc
-        echo "alias update-passwordmanager='cd ~/.passwordmanager && curl -s -o passwordmanager.py https://raw.githubusercontent.com/virtualdemon/passwordmanager/master/passwordmanager.py && curl -s -o requirements.txt https://raw.githubusercontent.com/virtualdemon/passwordmanager/master/requirements.txt && activenv && pip3 install -r requirements.txt && deactivate && cd'" >> ~/.zshrc
+        echo "alias passman='cd ~/.passman && activenv && ./passman.py'" >> ~/.zshrc
     else
         echo "Script is configured for you!"
     fi
 else
     echo "****Please add these lines to your .${SHELL}rc file and continue with manual installation****"
     echo "alias activenv='source .venv/bin/activate'"
-    echo "alias passwordmanager='cd ~/.passwordmanager && activenv && ./passwordmanager.py'"
-    echo "alias update-passwordmanager='cd ~/.passwordmanager && curl -s -o passwordmanager.py https://raw.githubusercontent.com/virtualdemon/passwordmanager/master/passwordmanager.py && curl -s -o requirements.txt https://raw.githubusercontent.com/virtualdemon/passwordmanager/master/requirements.txt && activenv && pip3 install -r requirements.txt && deactivate && cd'"
+    echo "alias passman='cd ~/.passman && activenv && ./passman.py'"
     exit
 fi
 # activate virtual environment for installing the needed libraries
@@ -56,5 +55,4 @@ pip3 install -r requirements.txt
 # deactivate virtual environment
 deactivate
 # view the configured aliases
-echo "run: 'passwordmanager --help' to see script help"
-echo "run: 'update-passwordmanager' to update script"
+echo "run: 'passman --help' to see script help"
