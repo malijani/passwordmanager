@@ -34,14 +34,27 @@ if [[ -e "$HOME/.passman" ]]; then
 fi
 # download script archive
 echo "Downloading passman.zip"
+# download script archive
 wget passman.zip https://github.com/malijani/passwordmanager/raw/master/archive/passman.zip
+# unzip passman.zip
 unzip passman.zip
+# move passman to HOME/.passman
 mv passman/ $HOME/.passman
+# remove passman.zip
 rm passman.zip
+# change directory to .passman
 cd $HOME/.passman
-
 # create .vev directory
 command virtualenv -p python3 .venv
+# activate virtual environment for installing the needed libraries
+source .venv/bin/activate
+# install needed libraries for passman
+pip3 install -r requirements.txt
+# deactivate virtual environment
+deactivate
+
+# change directory to HOME
+cd $HOME
 
 # add aliases for user shell
 if [[ $(echo $SHELL | grep bash) ]] ;then
@@ -64,11 +77,6 @@ else
     echo "alias passman='cd $HOME/.passman && activenv && ./passman.py'"
     exit
 fi
-# activate virtual environment for installing the needed libraries
-source .venv/bin/activate
-# install needed libraries for passwordmanager
-pip3 install -r requirements.txt
-# deactivate virtual environment
-deactivate
+
 # view the configured aliases
 echo "run: 'passman --help' to see script help"
