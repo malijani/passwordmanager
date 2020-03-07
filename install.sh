@@ -48,6 +48,7 @@ cd $HOME/.passman
 command virtualenv -p python3 .venv
 # activate virtual environment for installing the needed libraries
 source "./.venv/bin/activate"
+# check if virtualenv is not activated then exit
 if [[ "$VIRTUAL_ENV" != "1" ]]; then
     echo "virtualenv is not activated!"
     exit 1
