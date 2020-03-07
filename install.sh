@@ -13,20 +13,6 @@ has virtualenv
 has unzip
 has wget
 
-
-while [ "$1" != "" ]; do
-    case $1 in
-        -t|--test) shift
-                   HOME="$1"
-                   echo "Test directory is : $HOME"
-                   ;;
-
-        * ) continue
-    esac
-    shift
-done
-
-
 # check script existence
 if [[ -e "$HOME/.passman" ]]; then
     echo "You installed package already! CHECK : $HOME/.passman"
@@ -46,6 +32,9 @@ rm passman.zip
 cd $HOME/.passman
 # create .vev directory
 command virtualenv -p python3 .venv
+# test :
+echo "$(pwd)"
+command ls -la
 # activate virtual environment for installing the needed libraries
 source .venv/bin/activate
 # check if virtualenv is not activated then exit
