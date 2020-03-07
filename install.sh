@@ -37,11 +37,6 @@ echo "$(pwd)"
 command ls -la
 # activate virtual environment for installing the needed libraries
 source ./.venv/bin/activate
-# check if virtualenv is not activated then exit
-if [[ "$VIRTUAL_ENV" != "1" ]]; then
-    echo "virtualenv is not activated!"
-    exit 1
-fi
 # install needed libraries for passman
 pip3 install -r requirements.txt
 # deactivate virtual environment
