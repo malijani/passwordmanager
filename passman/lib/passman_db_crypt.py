@@ -52,4 +52,3 @@ class Password:
             row = tuple(list_of_dec_rows)
             list_of_rows.append(row)
         return list_of_rows
-
