@@ -8,71 +8,68 @@ import os
 
 
 parser = argparse.ArgumentParser(prog='passman',
-                                 description='''passwordmanager is a
-                                 programm to manage password database''')
+                                 description='''passman is a tool to manage your passwords safely''')
 parser.add_argument("--id",
-                    help='''table id for process''',
+                    help='''row id for process''',
                     type=int)
+
+parser.add_argument("--website_address",
+                    help='''set website address''')
 
 parser.add_argument("--user_name",
                     help="set user name")
 
-parser.add_argument("--website_address",
-                    help='''websiteaddress''')
-
-parser.add_argument("--phone_number",
-                    help="set phone number")
-
 parser.add_argument("--password",
-                    help='''user "GEN" to generate password
-                    or set your custom password or "SHOW" to show generated password''')
+                    help='''
+                    Set your custom password
+                    or "show" to show a generated password
+                    or use "gen" to generate password directly''')
 
 parser.add_argument("--length",
                     help='''set password length for auto-generation''',
                     type=int)
 
-# parser.add_argument("--intractive",
-#help="take data in intractive mode",
-# action="store_true")
-
 parser.add_argument("--email",
                     help="set acc email")
 
+parser.add_argument("--phone_number",
+                    help="set phone number")
+
 parser.add_argument("--description",
-                    help="set field description")
-
-parser.add_argument("--delete",
-                    help="delete a specific row",
-                    action="store_true")
-
-parser.add_argument("--update",
-                    help="change data in row",
-                    action="store_true")
-
-parser.add_argument("--show_content",
-                    help="show table",
-                    action="store_true")
-
-parser.add_argument("--show_enc_content",
-                    help="show enc table",
-                    action="store_true")
+                    help="set acc description")
 
 parser.add_argument("--insert",
                     help="create a new row",
                     action="store_true")
 
-parser.add_argument("--table_name",
-                    help="table name")
+parser.add_argument("--show_content",
+                    help="show decrypted data",
+                    action="store_true")
 
-parser.add_argument("--database",
-                    help="database address")
-
-parser.add_argument("--get_tables",
-                    help='''get tablenames in database''',
+parser.add_argument("--show_enc_content",
+                    help="show encrypted data",
                     action="store_true")
 
 parser.add_argument("--search",
-                    help="search in table with website address")
+                    help="search in table with given argument")
+
+parser.add_argument("--update",
+                    help="change data",
+                    action="store_true")
+
+parser.add_argument("--delete",
+                    help="delete a specific row",
+                    action="store_true")
+
+parser.add_argument("--table_name",
+                    help="set table name")
+
+parser.add_argument("--database",
+                    help="set database")
+
+parser.add_argument("--get_tables",
+                    help='get table names in database',
+                    action="store_true")
 
 args = parser.parse_args()
 
@@ -87,7 +84,7 @@ db1_fields = ["id",
               "description"
               ]
 if args.database:
-    database = args.database
+    database = f"data/{args.database}"
 if args.table_name:
     table_name = args.table_name
 # create database object
@@ -104,24 +101,30 @@ db1.create_cursor()
 db1.create_table()
 # create random string
 rand_str = random_string_generate()
+
 if args.get_tables:
     print(db1.show_tables())
+
 if args.id:
     row_id = args.id
 else:
     row_id = None
+
 if args.website_address:
     website_address = args.website_address
 else:
     website_address = None
+
 if args.user_name:
     user_name = args.user_name
 else:
     user_name = None
+
 if args.length:
     length = args.length
 else:
     length = 20
+
 if args.password:
     password = args.password
     if password.lower() == "gen":
@@ -140,24 +143,28 @@ if args.password:
                    (LENGTH is optional)''')
 else:
     password = None
+
 if args.email:
     email = args.email
 else:
     email = None
+
 if args.phone_number:
     phone_number = args.phone_number
 else:
     phone_number = None
+
 if args.description:
     description = args.description
 else:
     description = None
+
 if args.table_name:
     table = args.table_name
+
 if args.database:
     database = args.database
-# if args.intractive:
-    # pass
+
 if args.update:
     try:
         # create password object
@@ -175,14 +182,7 @@ if args.update:
     except UnboundLocalError:
         print('''Please set ID and one other thing: WEBSITE_ADDRESS
                USER_NAME PASSWORD EMAIL DESCRIPTION''')
-if args.delete:
-    try:
-        # create password object
-        passwd = Password()
-        passwd.setup()
-        print(db1.delete_row({"id": row_id}))
-    except UnboundLocalError:
-        print("Please set row id with --id")
+
 if args.insert:
     try:
         # create password object
@@ -198,6 +198,17 @@ if args.insert:
     except UnboundLocalError:
         print('''Please set WEBSITE_ADDRESS USER_NAME
                PASSWORD EMAIL PHONE_NUMBER DESCRIPTION''')
+
+
+if args.delete:
+    try:
+        # create password object
+        passwd = Password()
+        passwd.setup()
+        print(db1.delete_row({"id": row_id}))
+    except UnboundLocalError:
+        print("Please set row id with --id")
+
 if args.search:
     # create password object
     passwd = Password()
@@ -212,12 +223,14 @@ if args.search:
         print(f"Didn't find {args.search} in any row of {db1.table_name}")
     else:
         print(db1.show_fancy_table(find_list))
+
 if args.show_content:
     # create password object
     passwd = Password()
     passwd.setup()
     print(db1.show_fancy_table(passwd.dec_list_of_tuples(
         db1.show_table_content())))
+
 if args.show_enc_content:
     for row in db1.show_normal_row(db1.show_table_content()):
         print(row)
