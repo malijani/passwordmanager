@@ -1,18 +1,21 @@
-# ABOUT
-**This script helps me to manage my PASSWORDs and encrypt them in place with sqlite3 database!**
+# PASSMAN
 
-**My secure way to protect password data!**
+![RepoSize](https://img.shields.io/github/repo-size/malijani/passwordmanager.svg?style=flat-square) ![Contributors](https://img.shields.io/github/contributors/malijani/passwordmanager.svg?style=flat-square)
 
-**You can add it to a live persistent system to have your system and passwords with yourself everywhere!**
+## ABOUT
 
-my way : **a persistent encrypted kalilinux on a flash USB!**
+**Managing PASSWORDs and ENCRYPT them in place with cryptography!**
+
+**You can install it on a live persistent system to have your system and passwords with yourself anywhere!**
+
+> my way : **a persistent encrypted kali linux on a flash USB!**
+
+# DEMO
 
 [![asciicast](https://asciinema.org/a/25QiaZ8U5WInmT4rjkuyT7JXq.png)](https://asciinema.org/a/25QiaZ8U5WInmT4rjkuyT7JXq)
 
 
-![RepoSize](https://img.shields.io/github/repo-size/malijani/passwordmanager.svg?style=flat-square) ![Contributors](https://img.shields.io/github/contributors/malijani/passwordmanager.svg?style=flat-square)
-
-# INSTALL
+## INSTALL
 
 You can simply run this command to download package and install it:
 
@@ -35,44 +38,43 @@ after adding this function you can use it :
 
 `passman --help`
 
-# USAGE
+## USAGE
 
 set a unique key to encrypt and decrypt your passwords in database! just run script with this (KEY):>
 
 ```
-usage: passman [-h] [--id ID] [--user_name USER_NAME]
-               [--website_address WEBSITE_ADDRESS]
-               [--phone_number PHONE_NUMBER] [--password PASSWORD]
-               [--length LENGTH] [--email EMAIL] [--description DESCRIPTION]
-               [--delete] [--update] [--show_content] [--show_enc_content]
-               [--insert] [--table_name TABLE_NAME] [--database DATABASE]
-               [--get_tables] [--search SEARCH]
+usage: passman [-h] [--id ID] [--website_address WEBSITE_ADDRESS]
+               [--user_name USER_NAME] [--password PASSWORD] [--length LENGTH]
+               [--email EMAIL] [--phone_number PHONE_NUMBER]
+               [--description DESCRIPTION] [--insert] [--show_content]
+               [--show_enc_content] [--search SEARCH] [--update] [--delete]
+               [--table_name TABLE_NAME] [--database DATABASE] [--get_tables]
 
-passwordmanager is a programm to manage password database
+passman is a tool to manage your passwords safely
 
 optional arguments:
   -h, --help            show this help message and exit
-  --id ID               table id for process
+  --id ID               row id for process
+  --website_address WEBSITE_ADDRESS
+                        set website address
   --user_name USER_NAME
                         set user name
-  --website_address WEBSITE_ADDRESS
-                        websiteaddress
-  --phone_number PHONE_NUMBER
-                        set phone number
-  --password PASSWORD   user "GEN" to generate password or set your custom
-                        password or "SHOW" to show generated password
+  --password PASSWORD   Set your custom password or "show" to show a generated
+                        password or use "gen" to generate password directly
   --length LENGTH       set password length for auto-generation
   --email EMAIL         set acc email
+  --phone_number PHONE_NUMBER
+                        set phone number
   --description DESCRIPTION
-                        set field description
-  --delete              delete a specific row
-  --update              change data in row
-  --show_content        show table
-  --show_enc_content    show enc table
+                        set acc description
   --insert              create a new row
+  --show_content        show decrypted data
+  --show_enc_content    show encrypted data
+  --search SEARCH       search in table with given argument
+  --update              change data
+  --delete              delete a specific row
   --table_name TABLE_NAME
-                        table name
-  --database DATABASE   database address
-  --get_tables          get tablenames in database
-  --search SEARCH       search in table with website address
+                        set table name
+  --database DATABASE   set database
+  --get_tables          get table names in database
 ```
