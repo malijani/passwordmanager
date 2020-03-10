@@ -11,7 +11,8 @@ import base64
 
 class Password:
     def __init__(self):
-        self.custom_string = getpass.getpass("(KEY):> ").encode()
+        # get password : (This is a custom string that'll used for enc, dec)
+        self.custom_string = getpass.getpass().encode()
 
     # set FERNET object
     def setup(self):
@@ -28,16 +29,21 @@ class Password:
         self.key = base64.urlsafe_b64encode(kdf.derive(self.custom_string))
         self.f = Fernet(self.key)
 
-    def enc(self, string: str):
+    def enc(self, string):
+        # string to encrypt
         string = str(string)
+        # encrypted string with f.encrypt()
         return self.f.encrypt(string.encode()).decode()
 
-    def dec(self, enc_string: str):
+
+    def dec(self, enc_string):
         try:
+            # string to encrypt
             enc_string = str(enc_string)
+            # decrypt string with f.decrypt()
             return self.f.decrypt(enc_string.encode()).decode()
         except:
-            return "Invalid Signature"
+            return "Encrypted"
 
     def dec_list_of_tuples(self, list_of_tuples):
         list_of_rows = []
