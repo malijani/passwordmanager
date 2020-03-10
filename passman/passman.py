@@ -205,7 +205,15 @@ if args.delete:
         # create password object
         passwd = Password()
         passwd.setup()
-        print(db1.delete_row({"id": row_id}))
+        tb_content = db1.search_in_table({"id":row_id})
+        tb_dec_content = passwd.dec_list_of_tuples(tb_content)
+        for infos in tb_dec_content:
+            for info in infos:
+                if info == "Encrypted":
+                    print("Wrong password!")
+                    exit()
+        else:
+            print(db1.delete_row({"id": row_id}))
     except UnboundLocalError:
         print("Please set row id with --id")
 
