@@ -40,7 +40,7 @@ after adding this function you can use it :
 
 ## USAGE
 
-set a unique key to encrypt and decrypt your passwords in database! just run script with this (KEY):>
+Set an unique key to to crypt passwords in database!
 
 ```
 usage: passman [-h] [--id ID] [--website_address WEBSITE_ADDRESS]
